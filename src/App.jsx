@@ -30,17 +30,14 @@ const App = () => {
   };
 
   const handleButtonClick = () => {
-    let random = Math.floor(Math.random() * people.length);
+    let random;
 
-    if (random === index) {
-      random = index + 1;
-    }
+    /* as long as the random is the same as the current index, it will create a new random. This will keep happening until the random index is not the same as the current index */
+    do {
+      random = Math.floor(Math.random() * people.length);
+    } while (random === index); // Ensure the new random index is not the same as the current index
 
-    if (random > people.length - 1) {
-      random = 0;
-    }
     setIndex(random);
-    console.log(index);
   };
 
   return (
